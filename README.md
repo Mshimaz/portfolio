@@ -7,7 +7,7 @@ A modern, animated portfolio website built with React, Vite, and Tailwind CSS.
 - **Smooth Animations**: Powered by `framer-motion`.
 - **Responsive Layout**: Works seamlessly on Mobile, Tablet, and Desktop.
 
-## Tech Stacks
+## Tech Stack
 - React
 - Vite
 - Tailwind CSS
