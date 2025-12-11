@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-dark: #0f172a;
+  --bg-card: #1e293b;
+  --primary: #38bdf8;
+  --secondary: #818cf8;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .btn {
+    @apply inline-block px-6 py-3 bg-gradient-to-r from-cyan-400 to-blue-500 text-white rounded-full font-semibold transition-all duration-300 hover:opacity-90 hover:scale-105 border-none cursor-pointer shadow-lg shadow-cyan-500/30;
+  }
+
+  .btn-outline {
+    @apply inline-block px-6 py-3 bg-transparent border-2 border-cyan-400 text-cyan-400 rounded-full font-semibold transition-all duration-300 hover:bg-cyan-400 hover:text-white hover:shadow-lg hover:shadow-cyan-400/30 ml-4;
+  }
+
+  .glass-card {
+    @apply bg-slate-800/50 backdrop-blur-md border border-slate-700 rounded-xl p-6 transition-all duration-300;
+  }
+}
+
+.section {
+  @apply py-20;
+}
+
+.section-title {
+  @apply text-center text-4xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #38bdf8;
+}
