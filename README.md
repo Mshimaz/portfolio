@@ -1,4 +1,4 @@
-# Shimaz Portfolio
+# Muhammed Shimaz Portfolio
 
 A modern, animated portfolio website built with React, Vite, and Tailwind CSS.
 
