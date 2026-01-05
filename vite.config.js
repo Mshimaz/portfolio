@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './', // Relative path for flexibility
+  base: '/portfolio/', // Absolute path is safer for GH Pages
 })
