@@ -2,8 +2,8 @@ import profileImg from './assets/profile.jpg';
 
 export const PERSONAL_INFO = {
   name: "Muhammed Shimaz AK",
-  role: "Flutter Developer & AI Enthusiast",
-  bio: "Passionate developer specializing in cross-platform mobile apps with Flutter and exploring the frontiers of AI. Experienced in building real-time communication systems, scalable architectures, and beautiful user interfaces.",
+  role: "Software Engineer & AI Enthusiast",
+  bio: "Passionate Software Engineer specializing in building scalable applications, cross-platform solutions, and exploring the frontiers of AI. Experienced in full-stack development, real-time systems, and creating intuitive user experiences.",
   email: "shimaz.abc.ms@gmail.com",
   phone: "+91 7907507369",
   linkedin: "https://www.linkedin.com/in/muhammedshimaz",
