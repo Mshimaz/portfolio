@@ -6,6 +6,7 @@ export const PERSONAL_INFO = {
   bio: "Passionate Software Engineer specializing in building scalable applications, cross-platform solutions, and exploring the frontiers of AI. Experienced in full-stack development, real-time systems, and creating intuitive user experiences.",
   email: "shimaz.abc.ms@gmail.com",
   phone: "+91 7907507369",
+  phone2: "+971 568995188",
   linkedin: "https://www.linkedin.com/in/muhammedshimaz",
   github: "https://github.com/Mshimaz",
   image: profileImg,
