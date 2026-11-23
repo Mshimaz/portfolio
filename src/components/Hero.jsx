@@ -1,12 +1,10 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { useReducedMotion } from 'framer-motion';
 import { PERSONAL_INFO } from '../data';
 
 function HeroScene() {
   const stage = useRef(null);
   const reducedMotion = useReducedMotion();
-  const [paused, setPaused] = useState(false);
-  const motionEnabled = !paused && !reducedMotion;
 
   function resetAngle() {
     stage.current?.style.removeProperty('--pointer-x');
@@ -14,7 +12,7 @@ function HeroScene() {
   }
 
   function updateAngle(event) {
-    if (!motionEnabled || event.pointerType !== 'mouse') return;
+    if (reducedMotion || event.pointerType !== 'mouse') return;
     const bounds = event.currentTarget.getBoundingClientRect();
     const x = (event.clientX - bounds.left) / bounds.width - 0.5;
     const y = (event.clientY - bounds.top) / bounds.height - 0.5;
@@ -23,7 +21,7 @@ function HeroScene() {
   }
 
   return (
-    <div className="hero-scene" data-paused={!motionEnabled} onPointerMove={updateAngle} onPointerLeave={resetAngle}>
+    <div className="hero-scene" onPointerMove={updateAngle} onPointerLeave={resetAngle}>
       <div className="scene-art" aria-hidden="true">
         <div className="scene-grid" />
         <div className="scene-orbit orbit-outer" />
@@ -57,16 +55,6 @@ function HeroScene() {
         <span className="scene-chip chip-supabase">Supabase</span>
         <span className="scene-chip chip-angular">Angular</span>
       </div>
-      {!reducedMotion && (
-        <button
-          type="button"
-          className="motion-toggle"
-          onClick={() => { resetAngle(); setPaused(!paused); }}
-        >
-          <span aria-hidden="true" className={paused ? 'play-symbol' : 'pause-symbol'} />
-          {paused ? 'Play animation' : 'Pause animation'}
-        </button>
-      )}
     </div>
   );
 }
