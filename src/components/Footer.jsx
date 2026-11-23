@@ -1,18 +1,10 @@
-import React from 'react';
+import { PERSONAL_INFO } from '../data';
 
-const Footer = () => {
-    return (
-        <footer className="bg-slate-950 py-8 text-center border-t border-slate-900">
-            <div className="container">
-                <p className="text-slate-500 text-sm">
-                    © {new Date().getFullYear()} Muhammed Shimaz AK. All rights reserved.
-                </p>
-                <p className="text-slate-600 text-xs mt-2">
-                    Built with React & Tailwind CSS
-                </p>
-            </div>
-        </footer>
-    );
-};
-
-export default Footer;
+export default function Footer() {
+  return (
+    <footer className="shell site-footer">
+      <p>© {new Date().getFullYear()} {PERSONAL_INFO.name}</p>
+      <a href="#about">Back to top</a>
+    </footer>
+  );
+}
