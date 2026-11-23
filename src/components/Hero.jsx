@@ -3,12 +3,12 @@ import { useReducedMotion } from 'framer-motion';
 import { PERSONAL_INFO } from '../data';
 
 function HeroScene() {
-  const stage = useRef(null);
+  const composition = useRef(null);
   const reducedMotion = useReducedMotion();
 
   function resetAngle() {
-    stage.current?.style.removeProperty('--pointer-x');
-    stage.current?.style.removeProperty('--pointer-y');
+    composition.current?.style.removeProperty('--pointer-x');
+    composition.current?.style.removeProperty('--pointer-y');
   }
 
   function updateAngle(event) {
@@ -16,44 +16,36 @@ function HeroScene() {
     const bounds = event.currentTarget.getBoundingClientRect();
     const x = (event.clientX - bounds.left) / bounds.width - 0.5;
     const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-    stage.current?.style.setProperty('--pointer-x', `${x * 24}deg`);
-    stage.current?.style.setProperty('--pointer-y', `${y * -20}deg`);
+    composition.current?.style.setProperty('--pointer-x', `${x * 18}deg`);
+    composition.current?.style.setProperty('--pointer-y', `${y * -14}deg`);
   }
 
   return (
     <div className="hero-scene" onPointerMove={updateAngle} onPointerLeave={resetAngle}>
-      <div className="scene-art" aria-hidden="true">
-        <div className="scene-grid" />
-        <div className="scene-orbit orbit-outer" />
-        <div className="scene-orbit orbit-inner" />
-        <div className="device-shadow" />
-        <div className="device-stage" ref={stage}>
-          <div className="device-float">
-            <div className="device">
-              <div className="device-back" />
-              <div className="device-edge device-edge-left" />
-              <div className="device-edge device-edge-right" />
-              <div className="device-edge device-edge-bottom" />
-              <div className="device-edge device-edge-top" />
-              <div className="device-face">
-                <div className="device-camera" />
-                <div className="device-screen">
-                  <div className="screen-top"><span className="screen-logo">S</span><span className="screen-signal" /></div>
-                  <div className="screen-label">MOBILE DEVELOPMENT</div>
-                  <div className="screen-heading">From code<br />to release<span>.</span></div>
-                  <div className="screen-chart">
-                    <i /><i /><i /><i /><i /><i /><i /><i /><i /><i />
-                  </div>
-                  <div className="screen-platforms"><span>iOS</span><span>Android</span></div>
-                  <div className="screen-bottom" />
-                </div>
-              </div>
+      <div className="scene-grid" aria-hidden="true" />
+      <div className="scene-orbit" aria-hidden="true" />
+      <div className="scene-stage">
+        <div className="scene-arrival">
+          <div className="scene-composition" ref={composition}>
+            <div className="portrait-layer layer-back" aria-hidden="true" />
+            <div className="portrait-layer layer-middle" aria-hidden="true" />
+            <div className="portrait-layer layer-front">
+              <img src={PERSONAL_INFO.image} alt={`Portrait of ${PERSONAL_INFO.name}`} width="716" height="716" fetchPriority="high" />
+            </div>
+            <div className="scene-tile tile-flutter" aria-hidden="true">
+              <span className="tile-icon tile-icon-flutter" />
+              <span><strong>Flutter</strong><small>Mobile</small></span>
+            </div>
+            <div className="scene-tile tile-angular" aria-hidden="true">
+              <span className="tile-icon tile-icon-angular" />
+              <span><strong>Angular</strong><small>Web</small></span>
+            </div>
+            <div className="scene-tile tile-supabase" aria-hidden="true">
+              <span className="tile-icon tile-icon-supabase" />
+              <span><strong>Supabase</strong><small>Backend</small></span>
             </div>
           </div>
         </div>
-        <span className="scene-chip chip-flutter">Flutter</span>
-        <span className="scene-chip chip-supabase">Supabase</span>
-        <span className="scene-chip chip-angular">Angular</span>
       </div>
     </div>
   );
